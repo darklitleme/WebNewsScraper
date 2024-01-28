@@ -8,7 +8,7 @@ from WebScraper import getTokenSentimentFromDataBase
 
 app = Flask(__name__)
 
-@app.route("/API")
+@app.route("/")
 def hello_world():
     return "jess is stinky"
 
