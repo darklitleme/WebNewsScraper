@@ -153,3 +153,5 @@ cython_debug/
 .vercel
 # db info
 .env.development.local
+
+/node_modules
