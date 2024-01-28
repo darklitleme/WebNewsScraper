@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from finbert_utils import estimate_sentiment
+import os.path
 
 StockToSearch = "BTC-USD"
 
@@ -10,6 +11,20 @@ StockToSearch = "BTC-USD"
 def get_sentiment(news):
     probability, sentiment = estimate_sentiment(news)
     return probability, sentiment 
+
+
+def saveResult(stock, positive,negative):
+    fileurl = "/stockdata/" + stock
+    f = open(fileurl,"w")
+    f.write(positive + "," + negative)
+    f.close
+
+def loadResult(stock):
+    fileurl = "/stockdata/" + stock
+    f = open(fileurl,'r')
+    result = f.read()
+    positive,negative = result.split(',')
+    return positive, negative
 
 
 def searchYahoo(Token):
@@ -64,7 +79,14 @@ def getTokenSentiment(token):
         
     return percentageOfPos, percentageOfNeg
 
-
+def getTokenSentimentFromFile(token):
+    fileurl = "/stockdata/" + token
+    if os.path.exists(fileurl):
+        return loadResult(token)
+    else:
+        pos, neg = getTokenSentiment(token)
+        saveResult(token,pos,neg)
+        return loadResult(token)
 
 #positive , negative = getTokenSentiment(StockToSearch)
-
+print(getTokenSentimentFromFile(StockToSearch))

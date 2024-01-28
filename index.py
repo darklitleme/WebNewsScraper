@@ -11,7 +11,7 @@ def hello_world():
 @app.route("/getStockReview", methods=['GET'])
 def getStockInfo():
     stockToGet = request.args.get('stock')
-    positive , negative = getTokenSentiment()
+    positive , negative = getTokenSentiment(stockToGet)
     return (
         "positive = " , positive,
         "negative = " , negative)
