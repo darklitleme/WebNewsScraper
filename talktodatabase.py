@@ -5,12 +5,12 @@ from dotenv import dotenv_values
 
 from datetime import datetime
 envURL = "api\\.env.development.local"
-
+POSTGRES_URL = "postgres://default:qcD0FR2ZVJUh@ep-long-bush-a419tph1-pooler.us-east-1.postgres.vercel-storage.com/verceldb"
 def getOneStock(token):
     # Connect to an existing database
     dbURL=config = dotenv_values(envURL) 
 
-    with psycopg.connect(dbURL["POSTGRES_URL"]) as conn:
+    with psycopg.connect(POSTGRES_URL) as conn:
 
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
@@ -25,7 +25,7 @@ def getListOfTokens():
     # Connect to an existing database
     dbURL=config = dotenv_values(envURL) 
 
-    with psycopg.connect(dbURL["POSTGRES_URL"]) as conn:
+    with psycopg.connect(POSTGRES_URL) as conn:
 
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
@@ -44,7 +44,7 @@ def addStockToDataBase(token , positive, negative):
     # Connect to an existing database
     dbURL=config = dotenv_values(envURL) 
 
-    with psycopg.connect(dbURL["POSTGRES_URL"]) as conn:
+    with psycopg.connect(POSTGRES_URL) as conn:
 
         # Open a cursor to perform database operations
         with conn.cursor() as cur:
