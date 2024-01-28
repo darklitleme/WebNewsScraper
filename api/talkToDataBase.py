@@ -4,11 +4,11 @@ import os
 from dotenv import dotenv_values
 
 from datetime import datetime
-
+envURL = "api\\.env.development.local"
 
 def getOneStock(token):
     # Connect to an existing database
-    dbURL=config = dotenv_values(".env.development.local") 
+    dbURL=config = dotenv_values(envURL) 
 
     with psycopg.connect(dbURL["POSTGRES_URL"]) as conn:
 
@@ -23,7 +23,7 @@ def getOneStock(token):
 
 def getListOfTokens():
     # Connect to an existing database
-    dbURL=config = dotenv_values(".env.development.local") 
+    dbURL=config = dotenv_values(envURL) 
 
     with psycopg.connect(dbURL["POSTGRES_URL"]) as conn:
 
@@ -42,7 +42,7 @@ def addStockToDataBase(token , positive, negative):
     if getOneStock(token) != False:
         return False
     # Connect to an existing database
-    dbURL=config = dotenv_values(".env.development.local") 
+    dbURL=config = dotenv_values(envURL) 
 
     with psycopg.connect(dbURL["POSTGRES_URL"]) as conn:
 
@@ -57,4 +57,3 @@ def addStockToDataBase(token , positive, negative):
             conn.commit()
             return True
 
-addStockToDataBase("etc" , 44, 72)
