@@ -9,7 +9,7 @@ app = Flask(__name__)
 def hello_world():
     return "jess is stinky"
 @app.route("/api")
-def hello_world():
+def hello_their():
     return "hi bayley"
 
 @app.route("/getStockReview", methods=['GET'])
