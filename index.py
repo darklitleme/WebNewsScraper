@@ -1,4 +1,4 @@
-from WebScraper import getTokenSentiment
+from WebScraper import getTokenSentimentFromDataBase
 import json
 from flask import Flask, request
 
@@ -11,7 +11,7 @@ def hello_world():
 @app.route("/getStockReview", methods=['GET'])
 def getStockInfo():
     stockToGet = request.args.get('stock')
-    positive , negative = getTokenSentiment(stockToGet)
+    positive , negative = getTokenSentimentFromDataBase(stockToGet)
     return (
         "positive = " , positive,
         "negative = " , negative)

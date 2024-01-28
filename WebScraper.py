@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 from finbert_utils import estimate_sentiment
+from talkToDataBase import getOneStock
 import os.path
 
 StockToSearch = "BTC-USD"
@@ -79,14 +80,8 @@ def getTokenSentiment(token):
         
     return percentageOfPos, percentageOfNeg
 
-def getTokenSentimentFromFile(token):
-    fileurl = "/stockdata/" + token
-    if os.path.exists(fileurl):
-        return loadResult(token)
-    else:
-        pos, neg = getTokenSentiment(token)
-        saveResult(token,pos,neg)
-        return loadResult(token)
+def getTokenSentimentFromDataBase(token):
+    return getOneStock(token)
 
 #positive , negative = getTokenSentiment(StockToSearch)
-print(getTokenSentimentFromFile(StockToSearch))
+print(getTokenSentimentFromDataBase(StockToSearch))
