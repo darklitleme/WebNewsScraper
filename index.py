@@ -1,7 +1,7 @@
 
 from flask import Flask, request
 
-#from webscraper import getTokenSentimentFromDataBase
+from webscraper import getTokenSentimentFromDataBase
 
 app = Flask(__name__)
 
