@@ -57,3 +57,4 @@ def addStockToDataBase(token , positive, negative):
             conn.commit()
             return True
 
+print(getListOfTokens())
