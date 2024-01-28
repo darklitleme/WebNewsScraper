@@ -2,9 +2,7 @@
 import json
 from flask import Flask, request
 
-
-
-from WebScraper import getTokenSentimentFromDataBase
+from webscraper import getTokenSentimentFromDataBase
 
 app = Flask(__name__)
 

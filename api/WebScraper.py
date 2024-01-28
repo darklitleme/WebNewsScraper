@@ -1,4 +1,4 @@
-from talkToDataBase import getOneStock
+from talktodatabase import getOneStock
 import os.path
 
 StockToSearch = "BTC-USD"
