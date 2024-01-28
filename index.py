@@ -16,7 +16,4 @@ def hello_their():
 def getStockInfo():
     stockToGet = request.args.get('stock')
     token, positive , negative ,date = getTokenSentimentFromDataBase(stockToGet)
-    return (
-        "positive = " , positive,
-        "negative = " , negative)
-    return "bitcoin!"
+    return "positive = " + positive + "negative = " + negative
