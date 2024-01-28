@@ -1,4 +1,5 @@
-from flask import Flask, request
+import Flask
+from flask import request
 
 #from webscraper import getTokenSentimentFromDataBase
 
