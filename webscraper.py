@@ -1,8 +1,10 @@
-from talktodatabase import getOneStock
+from talktodatabase import getOneStock , getListOfToken
 import os.path
 
 StockToSearch = "BTC-USD"
 
+def getTokenList():
+    return getListOfToken()
 
 def getTokenSentimentFromDataBase(token):
     reply = getOneStock(token)

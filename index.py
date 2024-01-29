@@ -1,7 +1,7 @@
 
 from flask import Flask, request
 
-from webscraper import getTokenSentimentFromDataBase
+from webscraper import getTokenSentimentFromDataBase , getTokenList
 
 app = Flask(__name__)
 
@@ -12,9 +12,12 @@ def hello_world():
 def hello_their():
     return "hi bayley"
 
-@app.route("/getStockReview", methods=['GET'])
+@app.route("/getOneStockReview", methods=['GET'])
 def getStockInfo():
     stockToGet = request.args.get('stock')
     token, positive , negative ,date = getTokenSentimentFromDataBase(stockToGet)
     stringToReturn =  " positive," + str(positive) + ","
     return stringToReturn
+@app.route("/getTokenList")
+def getTokenListReq():
+    return getTokenList()
