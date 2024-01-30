@@ -4,7 +4,9 @@ import os.path
 StockToSearch = "BTC-USD"
 
 def getTokenList():
-    return getListOfTokens()
+    re = list( getListOfTokens())
+
+    return re
 
 def getTokenSentimentFromDataBase(token):
     reply = getOneStock(token)
@@ -12,3 +14,4 @@ def getTokenSentimentFromDataBase(token):
         return 0,0,0,0
     return reply
 #positive , negative = getTokenSentiment(StockToSearch)
+print(getTokenList())
