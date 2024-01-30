@@ -20,4 +20,5 @@ def getStockInfo():
     return stringToReturn
 @app.route("/getTokenList")
 def getTokenListReq():
-    return getTokenList()
+    ret = getTokenList()
+    return ret
