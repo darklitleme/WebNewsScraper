@@ -1,5 +1,5 @@
 
-from flask import Flask, request
+from flask import Flask, request , jsonify
 
 from webscraper import getTokenSentimentFromDataBase , getTokenList
 
@@ -21,4 +21,4 @@ def getStockInfo():
 @app.route("/getTokenList")
 def getTokenListReq():
     ret = getTokenList()
-    return ret
+    return jsonify( ret )
