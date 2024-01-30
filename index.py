@@ -18,7 +18,8 @@ def getStockInfo():
     token, positive , negative ,date = getTokenSentimentFromDataBase(stockToGet)
     stringToReturn =  " positive," + str(positive) + ","
     return stringToReturn
+
 @app.route("/getTokenList")
 def getTokenListReq():
     ret = getTokenList()
-    return jsonify( ret )
+    return jsonify( {"listOfTokens" : ret })
