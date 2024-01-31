@@ -20,7 +20,20 @@ def getOneStock(token):
                 return cur.fetchone()
             except:
                 return False
+def getAllStock():
+    # Connect to an existing database
+    dbURL=config = dotenv_values(envURL) 
 
+    with psycopg.connect(POSTGRES_URL) as conn:
+
+        # Open a cursor to perform database operations
+        with conn.cursor() as cur:
+            try:
+                # Execute a command: this creates a new table
+                cur.execute("SELECT * FROM stockreview")
+                return  cur.fetchall()
+            except:
+                return False
 def getListOfTokens():
     # Connect to an existing database
     dbURL=config = dotenv_values(envURL) 

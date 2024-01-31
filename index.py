@@ -1,7 +1,7 @@
 
 from flask import Flask, request , jsonify
 
-from webscraper import getTokenSentimentFromDataBase , getTokenList
+from webscraper import getTokenSentimentFromDataBase , getTokenList ,getAllInfo
 
 app = Flask(__name__)
 
@@ -23,3 +23,9 @@ def getStockInfo():
 def getTokenListReq():
     ret = getTokenList()
     return jsonify( {"listOfTokens" :ret })
+
+@app.route("/getNewConfeidence")
+def getTokenListReq():
+    ret = getAllInfo()
+    
+    return jsonify( ret)
