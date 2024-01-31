@@ -22,4 +22,4 @@ def getStockInfo():
 @app.route("/getTokenList")
 def getTokenListReq():
     ret = getTokenList()
-    return jsonify( {"listOfTokens" : jsonify(ret) })
+    return jsonify( {"listOfTokens" :ret })
