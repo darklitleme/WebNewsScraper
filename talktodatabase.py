@@ -32,7 +32,7 @@ def getListOfTokens():
             try:
                 # Execute a command: this creates a new table
                 cur.execute("select stocktoken  from stockreview ")
-                return cur.fetchall()
+                return [r[0] for r in cur.fetchall()]
             except:
                 return False
 

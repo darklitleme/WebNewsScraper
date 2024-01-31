@@ -14,4 +14,4 @@ def getTokenSentimentFromDataBase(token):
         return 0,0,0,0
     return reply
 #positive , negative = getTokenSentiment(StockToSearch)
-print(getTokenList())
+print (getTokenList())
