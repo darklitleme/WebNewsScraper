@@ -25,7 +25,7 @@ def getTokenListReq():
     return jsonify( {"listOfTokens" :ret })
 
 @app.route("/getNewConfeidence")
-def getTokenListReq():
+def getStockListReq():
     ret = getAllInfo()
     
     return jsonify( ret)
