@@ -28,4 +28,4 @@ def getTokenListReq():
 def getStockListReq():
     ret = getAllInfo()
     
-    return jsonify( ret)
+    return jsonify( {"stockNewsDump" : ret})
